@@ -2,6 +2,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$dot_env = __DIR__. '/../.env';
+if (is_readable($dot_env)) {
+    $dotenv = Dotenv\Dotenv::create(__DIR__. '/../');
+    $dotenv->load();
+}
+
 $app = new \Slim\App(new \Slim\Container(
     require __DIR__ . '/../config/core.php'
 ));
