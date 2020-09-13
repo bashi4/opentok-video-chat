@@ -8,6 +8,8 @@ if (is_readable($dot_env)) {
     $dotenv->load();
 }
 
+session_start();
+
 $app = new \Slim\App(new \Slim\Container(
     require __DIR__ . '/../config/core.php'
 ));
